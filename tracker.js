@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
     user: "root",
 
     // Your password
-    password: "",
+    password: "password",
     database: "employee_tracker_db"
 });
 
@@ -105,11 +105,19 @@ function addEmployee() {
             message: "What is the employee manager's ID?"
         }
     ]).then(function(res) {
+        if (res.managerId) {
         connection.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)', [res.firstName, res.lastName, res.roleId, res.managerId], function(err, data) {
             if (err) throw err;
             console.table("Successfully updated!");
             askQuestions();
         })
+    } else {
+        connection.query('INSERT INTO employee (first_name, last_name, role_id) VALUES (?, ?, ?)', [res.firstName, res.lastName, res.roleId], function(err, data) {
+            if (err) throw err;
+            console.table("Successfully updated!");
+            askQuestions();
+    })
+}
     })
 }
 

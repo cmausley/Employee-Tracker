@@ -22,9 +22,7 @@ You may then insert as much or as little information about your manager, employe
 When you are finished, simply select the "QUIT" option.
 
 ## Finished Product
-View the deployed version here:
-
-![Sample photo]()
+View the deployed version here: https://youtu.be/AHqA5CgXDlI 
 
 ## Technologies
 JavaScript
